@@ -2,9 +2,11 @@ import multer from "multer"
 
 const storage = multer.diskStorage({
     destination:(req, file, cb)=>{
-        cb(null, "/Public")
+        cb(null, "./public")
     },
     filename:(req, file, cb)=>{
-        cb(null, )
+        cb(null, file.originalname)
     }
 })
+
+export const upload = multer({storage}) 
